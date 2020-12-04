@@ -1,3 +1,20 @@
+/**
+ * * Bài tập Quản lý tuyển sinh
+ * ? Thông tin (Tất cả đều bắt buộc)
+ * - Điểm chuẩn của hội đồng
+ * - Điểm thi của 3 môn
+ * - Điểm ưu tiên:
+ *   + Điểm ưu tiên theo khu vực
+ *   + Điểm ưu tiên theo đối tượng
+ * # Step
+ * - Kiểm tra input hợp lệ:
+ *   + Điểm thi: [0, 10]
+ *   + Điểm chuẩn: [0, 34.5]
+ *   + Do điểm ưu tiên là cho chọn radio button nên không sợ sai
+ * - Cộng điểm thi và xét tuyển
+ * # Output
+ * - Trả output ra thẻ <p> có data-name="ketQua"
+ */
 document.getElementById("QuanLyTuyenSinh").onsubmit = function (e) {
   e.preventDefault();
   const diemChuan = +document.getElementById("DiemChuan").value;
@@ -38,7 +55,7 @@ document.getElementById("QuanLyTuyenSinh").onsubmit = function (e) {
 
   function checkInputDiemThi() {
     const diem = Array.from(arguments);
-    if (diem[0] == 0 || diem[0] > 34.5) {
+    if (diem[0] <= 0 || diem[0] > 34.5) {
       return false;
     }
     let i,
@@ -81,6 +98,46 @@ document.getElementById("QuanLyTuyenSinh").onsubmit = function (e) {
   }
 };
 
+/**
+ * * Bài tập Tính tiền điện
+ * ? Thông tin (Tất cả đều bắt buộc)
+ * - Tên khách hàng
+ * - Số kw điện đã tiêu thụ
+ * # Step
+ * - Kiểm tra input hợp lệ:
+ *   + kw > 0
+ * - Áp dụng các công thức sau và tính tiền điện:
+ *   + kw <= 50: total = kw * giá tiền điện 50kw đầu;
+ *   + kw <= 100: total = 50 * giá 50kw đầu + (kw - 50) * giá từ (51kw - 100kw);
+ *   + kw <= 200: total = 50 * giá 50kw đầu + 50 * giá từ (51kw - 100kw) 
+ * + (kw - 100) * giá từ (101kw - 200kw);
+ *   + kw <= 350: total = 50 * giá 50kw đầu + 50 * giá từ (51kw - 100kw) 
+ * + 100 * giá từ (101kw - 200kw) + (kw - 200) * giá từ (201kw - 350kw);
+ *   + kw > 350: total = 50 * giá 50kw đầu + 50 * giá từ (51kw - 100kw) 
+ * + 100 * giá từ (101kw - 200kw) + 150 * giá từ (201kw - 350kw)
+ *   + (kw - 350) * giá từ 350kw trở lên;
+ * # Step có công thức bớt nhìn nhức mắt hơn, mà dài hơn!
+ *  CODE:
+    if (kw > 350) {
+      total = (kw - 350) * 1300;
+      kw -= (kw - 350);
+    }
+    if (kw > 200) {
+      total = (kw - 200) * 1100;
+      kw -= (kw - 200);
+    }
+    if (kw > 100) {
+      total = (kw - 100) * 850;
+      kw -= (kw - 100);
+    }
+    if (kw > 50) {
+      total = (kw - 50) * 1100;
+      kw -= (kw - 50);
+    }
+    total = (kw - 50) * 500;
+ *  
+ */
+
 document.getElementById("TinhTienDien").onsubmit = function (e) {
   e.preventDefault();
   const name = document.getElementById("KH").value;
@@ -101,34 +158,63 @@ document.getElementById("TinhTienDien").onsubmit = function (e) {
     be350: 1100,
     remain: 1300,
   };
-
-  let total = 0;
-  if (kw <= 50) {
-    total = kw * prices.be50;
-  } else if (kw <= 100) {
-    total = 50 * prices.be50 + (kw - 50) * prices.be100;
-  } else if (kw <= 200) {
-    total = 50 * prices.be50 + 50 * prices.be100 + (kw - 100) * prices.be200;
-  } else if (kw <= 350) {
-    total =
-      50 * prices.be50 +
-      50 * prices.be100 +
-      100 * prices.be200 +
-      (kw - 200) * prices.be350;
-  } else {
-    total =
-      50 * prices.be50 +
-      50 * prices.be100 +
-      100 * prices.be200 +
-      150 * prices.be350 +
-      (kw - 350) * prices.remain;
-  }
+  
+  let total = tinhGia1(kw);
+  console.log(tinhGia2(kw));
 
   taoKetQua(
     ketQua,
     `Chi phí sử dụng điện của khách hàng ${name} là: ${total}`,
     "bg-success"
   );
+
+  
+
+  function tinhGia1(kw) {
+    if (kw <= 50) {
+      return kw * prices.be50;
+    } else if (kw <= 100) {
+      return 50 * prices.be50 + (kw - 50) * prices.be100;
+    } else if (kw <= 200) {
+      return 50 * prices.be50 + 50 * prices.be100 + (kw - 100) * prices.be200;
+    } else if (kw <= 350) {
+      return (
+        50 * prices.be50 +
+        50 * prices.be100 +
+        100 * prices.be200 +
+        (kw - 200) * prices.be350
+      );
+    } else {
+      return (
+        50 * prices.be50 +
+        50 * prices.be100 +
+        100 * prices.be200 +
+        150 * prices.be350 +
+        (kw - 350) * prices.remain
+      );
+    }
+  }
+
+  function tinhGia2(kw) {
+    let total = 0;
+    if (kw > 350) {
+      total += (kw - 350) * prices.remain;
+      kw -= kw - 350;
+    }
+    if (kw > 200) {
+      total += (kw - 200) * prices.be350;
+      kw -= kw - 200;
+    }
+    if (kw > 100) {
+      total += (kw - 100) * prices.be200;
+      kw -= kw - 100;
+    }
+    if (kw > 50) {
+      total += (kw - 50) * prices.be100;
+      kw -= kw - 50;
+    }
+    return total + kw * prices.be50;
+  }
 };
 
 function taoKetQua(oKetQua, message, background) {

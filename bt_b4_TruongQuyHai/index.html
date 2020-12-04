@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ"
+      crossorigin="anonymous"
+    />
+    <title>Bài tập buổi 4</title>
+    <style>
+      input:invalid {
+        box-shadow: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- bt1 -->
+    <div class="container my-5">
+      <div class="row">
+        <form class="col-sm-6 m-auto">
+          <h2>Bài tập 1 - Sắp xếp 3 số nguyên theo thứ tự tăng dần</h2>
+          <div class="mb-3">
+            <label for="ex1_number1" class="form-label">
+              Số nguyên đầu tiên:
+            </label>
+            <input id="ex1_number1" class="form-control" type="number" />
+          </div>
+          <div class="mb-3">
+            <label for="ex1_number2" class="form-label">
+              Số nguyên thứ hai:
+            </label>
+            <input id="ex1_number2" class="form-control" type="number" />
+          </div>
+          <div class="mb-3">
+            <label for="ex1_number3" class="form-label">
+              Số nguyên thứ ba:
+            </label>
+            <input id="ex1_number3" class="form-control" type="number" />
+          </div>
+          <button
+            class="btn btn-success form-control py-2 mt-2"
+            type="submit"
+            id="bt1"
+          >
+            Sắp xếp
+          </button>
+          <p id="answer1" class="mt-2 bg-primary text-white"></p>
+        </form>
+      </div>
+    </div>
+    <hr />
+
+    <!-- bt2 -->
+    <div class="container my-5">
+      <div class="row">
+        <div class="col-sm-6 m-auto">
+          <h2>Bài tập 2 - Chương trình chào hỏi</h2>
+          <div class="mb-3">
+            <label class="mb-3" for="ai_day">Ai đang sử dụng máy tính</label>
+            <select class="form-control" id="ai_day">
+              <option value="b">
+                Bố
+              </option>
+              <option value="m">
+                Mẹ
+              </option>
+              <option value="a">
+                Anh trai
+              </option>
+              <option value="e">
+                Em gái
+              </option>
+            </select>
+          </div>
+          <button
+            class="btn btn-success form-control py-2 mt-2"
+            type="submit"
+            id="bt2"
+          >
+            Chào hỏi
+          </button>
+          <p id="answer2" class="mt-2 bg-primary text-white"></p>
+        </div>
+      </div>
+    </div>
+    <hr />
+
+    <!-- bt3 -->
+    <div class="container my-5">
+      <div class="row">
+        <form class="col-sm-6 m-auto">
+          <h2>Bài tập 3 - Bao nhiêu số chẵn - Bao nhiêu số lẻ</h2>
+          <div class="mb-3">
+            <label for="ex3_number1" class="form-label">
+              Số nguyên đầu tiên:
+            </label>
+            <input id="ex3_number1" class="form-control" type="number" />
+          </div>
+          <div class="mb-3">
+            <label for="ex3_number2" class="form-label">
+              Số nguyên thứ hai:
+            </label>
+            <input id="ex3_number2" class="form-control" type="number" />
+          </div>
+          <div class="mb-3">
+            <label for="ex3_number3" class="form-label">
+              Số nguyên thứ ba:
+            </label>
+            <input id="ex3_number3" class="form-control" type="number" />
+          </div>
+          <button
+            class="btn btn-success form-control py-2 mt-2"
+            type="submit"
+            id="bt3"
+          >
+            Đếm
+          </button>
+          <p id="answer3" class="mt-2 bg-primary text-white"></p>
+        </form>
+      </div>
+    </div>
+    <hr />
+
+    <!-- bt4 -->
+    <div class="container my-5">
+      <div class="row">
+        <form class="col-sm-6 m-auto">
+          <h2>Bài tập 4 - Loại tam giác</h2>
+          <div class="mb-3">
+            <label for="ex4_number1" class="form-label">
+              Nhập chiều dài cạnh đầu tiên:
+            </label>
+            <input id="ex4_number1" class="form-control" type="number" />
+          </div>
+          <div class="mb-3">
+            <label for="ex4_number2" class="form-label">
+              Nhập chiều dài cạnh thứ hai:
+            </label>
+            <input id="ex4_number2" class="form-control" type="number" />
+          </div>
+          <div class="mb-3">
+            <label for="ex4_number3" class="form-label">
+              Nhập chiều dài cạnh thứ ba:
+            </label>
+            <input id="ex4_number3" class="form-control" type="number" />
+          </div>
+          <button
+            class="btn btn-success form-control py-2 mt-2"
+            type="submit"
+            id="bt4"
+          >
+            Xác định loại tam giác
+          </button>
+          <p id="answer4" class="mt-2 bg-primary text-white"></p>
+        </form>
+      </div>
+    </div>
+    <hr />
+
+    <script src="./index.js"></script>
+  </body>
+</html>
