@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="bt4 col-5 m-auto">
+      <h1>BT4 TÍNH CHU VI & DIỆN TÍCH HÌNH CHỮ NHẬT</h1>
+      <form>
+        <div class="form-group">
+          <label for="length">Chiều dài</label>
+          <input type="number" class="form-control" id="length" min="0.1" />
+        </div>
+        <div class="form-group">
+          <label for="width">Chiều rộng</label>
+          <input type="number" class="form-control" id="width" min="0.1" />
+        </div>
+        <button id="bt4" type="submit" class="btn btn-primary">Submit</button>
+        <div class="result"></div>
+      </form>
+    </div>
+    <div class="bt5 col-5 m-auto pt-5">
+      <h2>BT5 TÍNH TỔNG KÝ SỐ</h2>
+      <form>
+        <div class="form-group">
+          <label for="number">Số cần tính: </label>
+          <input type="number" class="form-control" id="number" min="0.1" />
+        </div>
+        <button id="bt5" type="submit" class="btn btn-primary">Submit</button>
+        <div class="result"></div>
+      </form>
+    </div>
+    <script>
+      // BT4
+      const perimeter = (length, width) => (length + width) * 2;
+      const area = (length, width) => length * width;
+      const width = window.innerWidth;
+
+      const bt4 = document.querySelector(".bt4");
+      const btnbt4 = bt4.querySelector("#bt4");
+      const res4 = bt4.querySelector(".result");
+
+      btnbt4.addEventListener("click", (e) => {
+        e.preventDefault();
+        const length = +document.getElementById("length").value;
+        const width = +document.getElementById("width").value;
+
+        let p = "perimeter: " + perimeter(length, width);
+        let a = "area: " + area(length, width);
+
+        res4.innerHTML = `<h2>${p}</h2> <h2>${a}</h2>`;
+      });
+
+
+      // BT5
+      function sumDigit(number) {
+        let sum = 0;
+        while (number) {
+          sum += Math.floor(number % 10);
+          number /= 10;
+        }
+        return sum;
+      }
+
+      const bt5 = document.querySelector(".bt5");
+      const btnbt5 = bt5.querySelector("#bt5");
+      const res5 = bt5.querySelector(".result");
+
+      btnbt5.addEventListener("click", (e) => {
+        e.preventDefault();
+        let number = +document.getElementById("number").value;
+
+        let sum = "SUM: " + sumDigit(number);
+
+        res5.innerHTML = `<h2>${sum}</h2>`;
+      });
+    </script>
+  </body>
+</html>
