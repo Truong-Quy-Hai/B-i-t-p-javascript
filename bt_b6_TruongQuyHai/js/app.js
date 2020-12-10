@@ -15,14 +15,16 @@ import taoKetQua, { getEleById, queryDataSet } from "./helper.js";
 
 (function b1() {
   let i = 1,
-    sum = 0;
+    sum = 0,
+    res = 0;
   do {
     sum += i;
+    res = i;
     ++i;
   } while (sum <= 10000);
   getEleById(
     "bai1"
-  ).innerHTML += `<p class="alert alert-success">Số nguyên dương nhỏ nhất sao cho: 1 + 2 + ... + n > 10000 là ${sum}</p>`;
+  ).innerHTML += `<p class="alert alert-success">Số nguyên dương <span class="fw-bold text-danger">n</span> nhỏ nhất sao cho: 1 + 2 + ... + <span class="fw-bold text-danger">n</span> > 10000 là ${res}</p>`;
 })();
 
 /**
