@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BT</title>
+    <!-- BOOSTRAP CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <style>
+      p {
+        margin: 0;
+      }
+      tr,
+      td {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="text-capitalize py-3 text-center bg-dark text-white">
+      quản lý nhân viên
+    </h1>
+
+    <div class="container">
+      <form id="addNV"></form>
+    </div>
+    <div class="container">
+      <button id="toXls" target="dsnv">export to excel</button>
+      <table class="table" id="dsnv">
+      </table>
+    </div>
+
+    <!-- BOOTSTRAP js -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="./src/Lib/tableHTMLExport.js">
+      
+    </script>
+
+    <!-- my js -->
+    <script src="./src/index.js" type="module"></script>
+  </body>
+</html>
