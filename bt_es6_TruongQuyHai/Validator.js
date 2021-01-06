@@ -8,9 +8,10 @@ export default class Validator {
     return [err ? false : true, err];
   };
   validateTen = (ten) => {
+    const regex = /[^a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷỹ\s]/;
     let err = "";
     if (ten.length === 0) err += "tên không được để trống<br/>";
-    if (ten !== "string") err += "tên phải là ký tự<br/>";
+    if (ten.match(regex)) err += "tên phải là ký tự<br/>";
     if (ten.length < 3) err += "tên phải dài hơn 3 ký tự<br/>";
     return [err ? false : true, err];
   };

@@ -10,3 +10,4 @@
 - [ ] Bài tập phụ buổi 5
 - [x] Bài tập buổi 6
 - [x] Bài tập thêm về api
+- [x] Bài tập es6
