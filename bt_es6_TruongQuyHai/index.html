@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ES6</title>
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <style>
+      #form .input-group-text {
+        width: 120px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row mt-5">
+      <form id="form" class="col-sm-6">
+        <div class="input-group mb-3">
+          <span class="input-group-text">Mã nhân viên</span>
+          <input
+            type="text"
+            class="form-control"
+            id="maNV"
+          />
+          <div class="invalid-feedback"></div>
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text">Tên nhân viên</span>
+          <input
+            type="text"
+            class="form-control"
+            id="tenNV"
+          />
+          <div class="invalid-feedback"></div>
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text">Chức vụ</span>
+          <select id="chucVu" class="form-control">
+            <option value="3">Giám đốc</option>
+            <option value="2">Quản lý</option>
+            <option value="1">Thường</option>
+          </select>
+          <div class="invalid-feedback"></div>
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text">Hệ số lương</span>
+          <input
+            type="text"
+            class="form-control"
+            id="heSoLuong"
+          />
+          <div class="invalid-feedback"></div>
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text">Lương cơ bản</span>
+          <input
+            type="text"
+            class="form-control"
+            id="luongCoBan"
+          />
+          <div class="invalid-feedback"></div>
+        </div>
+        <button class="btn btn-outline-danger">Submit</button>
+      </form>
+      <div class="bg-dark col-sm-6 text-white p-4" id="hienThi">
+        <h2>Thông tin nhân viên</h2>
+      </div>
+    </div>
+    </div>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./index.js" type="module"></script>
+  </body>
+</html>
