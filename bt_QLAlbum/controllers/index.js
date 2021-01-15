@@ -23,9 +23,7 @@ function display() {
           <div class="card-body">
             <h3 class="name">${name}</h3>
             <p class="des card-text">${album.des}</p>
-            <p class="cate card-text" cate="${album.cate}">Thể loại: ${
-      cateTexts[album.cate - 1]
-    }</p>
+            <p class="cate card-text" cate="${album.cate}">Thể loại: ${cateTexts[album.cate - 1]}</p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
                 <button type="button" class="btn btn-success text-white btn-sm btn-outline-secondary mr-2" onclick="update('${name}')">Chỉnh sửa</button>
