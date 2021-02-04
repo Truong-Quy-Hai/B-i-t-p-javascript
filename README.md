@@ -11,3 +11,4 @@
 - [x] Bài tập buổi 6
 - [x] Bài tập thêm về api
 - [x] Bài tập es6
+- [x] Bài tập quản lý album
